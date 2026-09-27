@@ -42,7 +42,7 @@ html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 body{
   margin:0;background:var(--bone);color:var(--ink);
   font-family:Commissioner,system-ui,-apple-system,"Segoe UI",sans-serif;
-  font-size:15px;line-height:1.62;-webkit-font-smoothing:antialiased;overflow-x:hidden;
+  font-size:15px;line-height:1.45;-webkit-font-smoothing:antialiased;overflow-x:hidden;
 }
 img{max-width:100%;display:block}
 a{color:inherit}
@@ -115,7 +115,7 @@ p{margin:0}
 .hero-in{position:relative;z-index:2;display:grid;grid-template-columns:1.06fr .94fr;gap:clamp(24px,4vw,56px);align-items:center;
   padding:clamp(44px,6vw,76px) 0 clamp(52px,6vw,88px);min-height:min(88vh,860px)}
 .eyebrow{display:inline-flex;align-items:center;gap:9px;font-family:"Roboto Mono",monospace;font-size:12px;letter-spacing:.14em;
-  text-transform:uppercase;color:#B6A9FF;border:1px solid rgba(110,91,240,.5);background:rgba(110,91,240,.14);border-radius:100px;padding:8px 15px}
+  color:#B6A9FF;border:1px solid rgba(110,91,240,.5);background:rgba(110,91,240,.14);border-radius:100px;padding:8px 15px}
 .hero h1{margin:22px 0 0}
 .hero h1 em{font-style:normal;color:#A99BFF}
 .hero-lead{margin-top:22px;font-size:clamp(15px,1.55vw,19px);color:#C4CAD6;max-width:33em}
@@ -168,7 +168,7 @@ p{margin:0}
 /* ══════════════════ секции ══════════════════ */
 .sec{padding:clamp(58px,7.5vw,var(--s7)) 0;position:relative}
 .sec-head{max-width:54ch;margin-bottom:clamp(30px,4vw,var(--s5))}
-.tag{font-family:"Roboto Mono",monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--cure-ink);display:block;margin-bottom:15px}
+.tag{font-family:"Roboto Mono",monospace;font-size:12px;letter-spacing:.14em;color:var(--cure-ink);display:block;margin-bottom:15px}
 .sec-head p{margin-top:17px;color:var(--grey);font-size:19px}
 .dark{background:var(--ink);color:#fff;position:relative;overflow:clip}
 .dark::before{content:"";position:absolute;inset:0;pointer-events:none;
@@ -291,7 +291,7 @@ p{margin:0}
   background:linear-gradient(180deg,transparent 40%,rgba(110,91,240,.42));opacity:0;transition:opacity .3s var(--e)}
 .doc:hover .ph::before{opacity:1}
 .doc:hover{transform:translateY(-4px);box-shadow:var(--sh2)}
-.ph{aspect-ratio:3/4;display:grid;place-items:center;position:relative;background:linear-gradient(155deg,#DEDBD6,#C9C5BE 55%,#DEDBD6);color:#4A463F}
+.ini{aspect-ratio:16/10;display:grid;place-items:center;background:linear-gradient(155deg,var(--cure-soft),#DCD6FB 58%,var(--cure-soft));color:var(--cure-ink);font-weight:700;font-size:clamp(40px,8vw,58px);letter-spacing:-.02em;font-family:var(--disp,inherit)}
 .ph::after{content:"";position:absolute;inset:0;background-image:radial-gradient(circle at 1px 1px,rgba(255,255,255,.5) 1px,transparent 0);background-size:18px 18px}
 .ph span{position:relative;z-index:1;font-family:"Roboto Mono",monospace;font-size:12px;letter-spacing:.08em}
 .doc-b{padding:19px var(--s3) var(--s3)}
@@ -317,7 +317,7 @@ p{margin:0}
 /* ── отзывы ── */
 .rev{background:var(--white);border:1px solid var(--grey-line);border-radius:var(--r-l);padding:var(--s3);box-shadow:var(--sh1);display:flex;flex-direction:column}
 .stars{display:flex;gap:3px;margin-bottom:15px;color:var(--cure)}
-.rev blockquote{margin:0;font-size:15px;line-height:1.58;flex:1}
+.rev blockquote{margin:0;font-size:15px;line-height:1.45;flex:1}
 .rev-w{display:flex;align-items:center;gap:12px;margin-top:20px;padding-top:16px;border-top:1px solid var(--grey-line)}
 .rev-a{width:42px;height:42px;border-radius:50%;background:var(--ink);color:#fff;display:grid;place-items:center;font-family:Geologica;font-weight:600;font-size:15px;flex-shrink:0}
 .rev-n{font-weight:600;font-size:15px}
@@ -445,7 +445,7 @@ footer{background:var(--ink);color:#A9B0BF;padding:var(--s5) 0 var(--s3);margin-
 .f-c h4{color:#fff;font-size:15px;margin-bottom:16px;font-family:Geologica;font-weight:600}
 .f-c a{display:block;color:#A9B0BF;text-decoration:none;padding:11px 0;font-size:15px}
 .f-c a:hover{color:#A99BFF}
-.f-ab{font-size:15px;line-height:1.6;margin-top:16px;max-width:33em}
+.f-ab{font-size:15px;line-height:1.45;margin-top:16px;max-width:33em}
 .f-bot{display:flex;justify-content:space-between;gap:var(--s2);flex-wrap:wrap;padding-top:var(--s3);font-size:12px}
 .f-lic{color:#7A8496;font-size:12px;margin-top:14px;line-height:1.55;max-width:44em}
 
@@ -470,7 +470,7 @@ footer{background:var(--ink);color:#A9B0BF;padding:var(--s5) 0 var(--s3);margin-
   .nav{display:none;position:absolute;top:68px;left:0;right:0;background:var(--ink);flex-direction:column;
     padding:10px 16px 18px;border-bottom:1px solid rgba(255,255,255,.12);gap:0}
   .nav.open{display:flex}
-  .nav a{padding:14px 12px;font-size:15px}
+  .nav a{display:flex;align-items:center;min-height:48px;padding:12px;font-size:15px}
   .burger{display:flex}
 }
 @media (max-width:768px){
@@ -494,6 +494,7 @@ footer{background:var(--ink);color:#A9B0BF;padding:var(--s5) 0 var(--s3);margin-
   .xray-pin{position:static;height:auto;min-height:0}
 }
 @media print{.top,.field{display:none}}
+@media(min-width:760px){.ini{aspect-ratio:3/4}}
 </style>
 </head>
 <body>
@@ -871,7 +872,7 @@ footer{background:var(--ink);color:#A9B0BF;padding:var(--s5) 0 var(--s3);margin-
     </div>
     <div class="grid g4">
       <article class="doc rise">
-        <div class="ph"><span>ФОТО 3:4</span></div>
+        <div class="ini" aria-hidden="true">ИС</div>
         <div class="doc-b">
           <h3>Ирина Соколова</h3>
           <div class="doc-r">терапия · эндодонтия</div>
@@ -880,7 +881,7 @@ footer{background:var(--ink);color:#A9B0BF;padding:var(--s5) 0 var(--s3);margin-
         </div>
       </article>
       <article class="doc rise">
-        <div class="ph"><span>ФОТО 3:4</span></div>
+        <div class="ini" aria-hidden="true">МГ</div>
         <div class="doc-b">
           <h3>Марк Гринберг</h3>
           <div class="doc-r">имплантология · хирургия</div>
@@ -889,7 +890,7 @@ footer{background:var(--ink);color:#A9B0BF;padding:var(--s5) 0 var(--s3);margin-
         </div>
       </article>
       <article class="doc rise">
-        <div class="ph"><span>ФОТО 3:4</span></div>
+        <div class="ini" aria-hidden="true">АВ</div>
         <div class="doc-b">
           <h3>Алина Верещагина</h3>
           <div class="doc-r">ортодонтия · брекеты, элайнеры</div>
@@ -898,7 +899,7 @@ footer{background:var(--ink);color:#A9B0BF;padding:var(--s5) 0 var(--s3);margin-
         </div>
       </article>
       <article class="doc rise">
-        <div class="ph"><span>ФОТО 3:4</span></div>
+        <div class="ini" aria-hidden="true">ТХ</div>
         <div class="doc-b">
           <h3>Тимур Хасанов</h3>
           <div class="doc-r">детская стоматология</div>
@@ -920,7 +921,6 @@ footer{background:var(--ink);color:#A9B0BF;padding:var(--s5) 0 var(--s3);margin-
     </div>
     <div class="grid g3">
       <article class="case rise">
-        <div class="ba"><div data-l="ДО"><span>ФОТО 4:3</span></div><div data-l="ПОСЛЕ"><span>ФОТО 4:3</span></div></div>
         <div class="case-b">
           <h3>Восстановление жевательной группы</h3>
           <p>Два разрушенных зуба, пациент не лечился одиннадцать лет. Обошлись без удаления.</p>
@@ -930,7 +930,6 @@ footer{background:var(--ink);color:#A9B0BF;padding:var(--s5) 0 var(--s3);margin-
         </div>
       </article>
       <article class="case rise">
-        <div class="ba"><div data-l="ДО"><span>ФОТО 4:3</span></div><div data-l="ПОСЛЕ"><span>ФОТО 4:3</span></div></div>
         <div class="case-b">
           <h3>Имплант вместо удалённого шестого</h3>
           <p>Зуб удалили пять лет назад в другой клинике, соседние начали наклоняться.</p>
@@ -940,7 +939,6 @@ footer{background:var(--ink);color:#A9B0BF;padding:var(--s5) 0 var(--s3);margin-
         </div>
       </article>
       <article class="case rise">
-        <div class="ba"><div data-l="ДО"><span>ФОТО 4:3</span></div><div data-l="ПОСЛЕ"><span>ФОТО 4:3</span></div></div>
         <div class="case-b">
           <h3>Прикус у взрослого, элайнеры</h3>
           <p>Скученность нижних резцов. Без брекетов — прозрачные капы, снимаются на время еды.</p>
@@ -1384,6 +1382,9 @@ footer{background:var(--ink);color:#A9B0BF;padding:var(--s5) 0 var(--s3);margin-
   burger.addEventListener("click", function(){
     var open = nav.classList.toggle("open");
     burger.setAttribute("aria-expanded", open ? "true" : "false");
+    /* с клавиатуры фокус уходил мимо меню на кнопку записи */
+    if (open){ var first = nav.querySelector("a"); if (first) first.focus({ preventScroll: true }); }
+    else burger.focus({ preventScroll: true });
   });
   nav.addEventListener("click", function(e){
     if (e.target.tagName === "A"){ nav.classList.remove("open"); burger.setAttribute("aria-expanded","false"); }
