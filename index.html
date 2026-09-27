@@ -12,7 +12,7 @@
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@400;500;600&family=Geologica:wght@400;500;600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@400;600;700&family=Geologica:wght@400;600;700&family=Roboto+Mono:wght@400;600&display=swap" rel="stylesheet">
 <style>
 /* ══════════════════ токены ══════════════════ */
 :root{
@@ -22,7 +22,7 @@
   --bone:#ECEAE6;
   --bone-2:#F5F3F0;
   --white:#FFFFFF;
-  --grey:#6B7280;
+  --grey:#606773;
   --grey-line:#D8D5D0;
   --cure:#6E5BF0;        /* свет полимеризационной лампы — фоны, свечения */
   --cure-ink:#5A48D6;    /* тот же свет, затемнён до контраста 5.2 на костяном */
@@ -85,7 +85,7 @@ p{margin:0}
 .nav a{color:#C6CBD6;text-decoration:none;font-size:15px;padding:10px 12px;border-radius:var(--r-s);transition:color .18s var(--e),background .18s var(--e)}
 .nav a:hover{color:#fff;background:rgba(255,255,255,.08)}
 .top-r{display:flex;align-items:center;gap:10px;flex-shrink:0}
-.tel{color:#fff;text-decoration:none;font-family:"Roboto Mono",monospace;font-size:15px;white-space:nowrap;padding:11px 4px}
+.tel{color:#fff;text-decoration:none;font-size:15px;font-variant-numeric:tabular-nums;white-space:nowrap;padding:11px 4px}
 .tel:hover{color:#A99BFF}
 .burger{display:none;width:44px;height:44px;align-items:center;justify-content:center;background:rgba(255,255,255,.09);border:0;border-radius:var(--r-s);cursor:pointer;color:#fff}
 
@@ -121,7 +121,7 @@ p{margin:0}
 .hero-lead{margin-top:22px;font-size:clamp(15px,1.55vw,19px);color:#C4CAD6;max-width:33em}
 .hero-acts{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
 .hero-facts{display:flex;flex-wrap:wrap;gap:28px;margin-top:38px;padding-top:26px;border-top:1px solid rgba(255,255,255,.12)}
-.f-n{font-family:Geologica;font-weight:700;font-size:23px;line-height:1}
+.f-n{font-family:Geologica;font-weight:700;font-size:28px;line-height:1}
 .f-t{font-size:12px;color:#94A0B2;margin-top:6px;line-height:1.4}
 
 /* ── 3D-зуб ── */
@@ -220,7 +220,7 @@ p{margin:0}
 .xray-steps{position:relative}
 .step{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;
   opacity:0;transform:translateY(20px);transition:opacity .45s var(--e),transform .45s var(--e);pointer-events:none}
-.step.on{opacity:1;transform:none;pointer-events:auto;position:relative}
+.step.on{opacity:1;visibility:visible;transform:none;pointer-events:auto;position:relative}
 .step-n{font-family:"Roboto Mono",monospace;font-size:12px;letter-spacing:.12em;color:#B6A9FF;margin-bottom:14px}
 .step h3{font-size:clamp(23px,3vw,34px);margin-bottom:16px}
 .step p{color:#C4CAD6;font-size:15px;max-width:38ch}
@@ -232,7 +232,7 @@ p{margin:0}
   display:flex;flex-direction:column;justify-content:flex-end;gap:9px;
 }
 .xray-bar b{
-  display:block;font-family:"Roboto Mono",monospace;font-size:12px;letter-spacing:.1em;
+  display:block;font-size:12px;letter-spacing:.1em;
   color:rgba(255,255,255,.58);text-align:left;font-weight:400;transition:color .3s var(--e);
 }
 .xray-bar button[aria-current="true"] b{color:#B6A9FF}
@@ -274,7 +274,7 @@ p{margin:0}
 .bill ul{list-style:none;margin:0;padding:6px var(--s3) 12px}
 .bill li{display:flex;justify-content:space-between;gap:14px;align-items:baseline;padding:13px 0;border-bottom:1px solid var(--grey-line);font-size:15px}
 .bill li:last-child{border-bottom:0}
-.bill li b{font-family:"Roboto Mono",monospace;font-weight:500;white-space:nowrap}
+.bill li b{font-family:"Roboto Mono",monospace;font-weight:600;white-space:nowrap}
 .bill-t{padding:18px var(--s3);border-top:2px solid var(--ink);display:flex;justify-content:space-between;align-items:baseline;gap:12px}
 .bill-t span{font-size:15px;color:var(--grey)}
 .bill-t b{font-family:Geologica;font-weight:700;font-size:28px}
@@ -358,7 +358,7 @@ p{margin:0}
 .chan-v{font-weight:600;font-size:15px;margin-top:1px}
 .form{background:var(--white);border:1px solid var(--grey-line);border-radius:var(--r-l);padding:clamp(22px,3vw,var(--s4));box-shadow:var(--sh2)}
 .fld{margin-bottom:var(--s2)}
-.fld label{display:block;font-size:15px;font-weight:500;margin-bottom:8px}
+.fld label{display:block;font-size:15px;font-weight:600;margin-bottom:8px}
 .fld .h{font-weight:400;color:var(--grey);font-size:12px}
 .fld input,.fld textarea,.fld select{width:100%;min-height:52px;padding:14px 16px;font:inherit;font-size:15px;
   border:1px solid var(--grey-line);border-radius:var(--r-m);background:var(--bone-2);transition:border-color .16s var(--e),background .16s var(--e)}
@@ -397,14 +397,14 @@ p{margin:0}
 .row.on{background:var(--cure-soft)}
 .row-n{font-size:15px;line-height:1.3}
 .row-p{font-family:"Roboto Mono",monospace;font-size:12px;color:var(--grey);margin-top:3px}
-.step{display:flex;align-items:center;justify-content:center;gap:4px}
-.step button{width:38px;height:44px;border:1px solid var(--grey-line);background:var(--white);border-radius:var(--r-s);
+.qty{display:flex;align-items:center;justify-content:center;gap:4px}
+.qty button{width:38px;height:44px;border:1px solid var(--grey-line);background:var(--white);border-radius:var(--r-s);
   cursor:pointer;font-size:19px;line-height:1;color:var(--ink);transition:border-color .16s var(--e),color .16s var(--e);display:grid;place-items:center}
-.step button:hover:not(:disabled){border-color:var(--cure);color:var(--cure-ink)}
-.step button:disabled{opacity:.34;cursor:not-allowed}
-.step output{min-width:34px;text-align:center;font-family:"Roboto Mono",monospace;font-size:15px;font-variant-numeric:tabular-nums}
+.qty button:hover:not(:disabled){border-color:var(--cure);color:var(--cure-ink)}
+.qty button:disabled{opacity:.34;cursor:not-allowed}
+.qty output{min-width:34px;text-align:center;font-family:"Roboto Mono",monospace;font-size:15px;font-variant-numeric:tabular-nums}
 .row-s{text-align:right;font-family:"Roboto Mono",monospace;font-size:15px;white-space:nowrap;color:var(--grey)}
-.row.on .row-s{color:var(--ink);font-weight:500}
+.row.on .row-s{color:var(--ink);font-weight:600}
 
 .calc-sum{position:sticky;top:88px}
 .cs-in{background:var(--ink);color:#fff;border-radius:var(--r-l);padding:var(--s3);position:relative;overflow:hidden}
@@ -412,7 +412,7 @@ p{margin:0}
   background:radial-gradient(420px 300px at 90% 0%,rgba(110,91,240,.32),transparent 65%)}
 .cs-in > *{position:relative;z-index:1}
 .cs-line{display:flex;justify-content:space-between;gap:12px;font-size:15px;color:#9BA3B4;margin-bottom:9px}
-.cs-line b{color:#fff;font-weight:500}
+.cs-line b{color:#fff;font-weight:600}
 .cs-total{display:flex;justify-content:space-between;align-items:baseline;gap:12px;
   margin-top:16px;padding-top:16px;border-top:1px solid rgba(255,255,255,.16)}
 .cs-total span{font-size:15px;color:#9BA3B4}
@@ -489,7 +489,7 @@ footer{background:var(--ink);color:#A9B0BF;padding:var(--s5) 0 var(--s3);margin-
   *,*::before,*::after{animation:none!important;transition-duration:.01ms!important}
   .rise{opacity:1;transform:none}
   .tooth3d{animation:none}
-  .step{position:relative;opacity:1;transform:none;pointer-events:auto;margin-bottom:26px}
+  .step{position:relative;opacity:1;visibility:visible;transform:none;pointer-events:auto;margin-bottom:26px}
   .xray-track{height:auto}
   .xray-pin{position:static;height:auto;min-height:0}
 }
@@ -510,6 +510,39 @@ footer{background:var(--ink);color:#A9B0BF;padding:var(--s5) 0 var(--s3);margin-
 
 /* длинная надпись на 320 px ломалась на строки, прижатые влево */
 .btn, .btn-main, a.btn, button.btn{text-align:center;line-height:1.25}
+
+/* у соседних секций одного фона отступы складывались: между блоками выходило
+   до 292 px воздуха при заданных 96. Второй секции верхний отступ не нужен */
+.dark-bg + .dark-bg, .plain-bg + .plain-bg{padding-top:0}
+html{scroll-padding-top:96px}
+
+/* плашки с коротким текстом растягивались на всю колонку и читались как пустые поля */
+@media(max-width:700px){
+  .cs-split > div{justify-self:start}
+  .rev-w{align-self:flex-start}
+}
+
+/* блоки из трёх одинаковых карточек подряд читаются как шаблон: первый случай крупнее */
+@media(min-width:900px){
+  #cases .grid.g3{grid-template-columns:repeat(3,minmax(0,1fr))}
+  #cases .case:first-child{grid-column:span 2}
+}
+
+/* подписи фактов первого экрана вставали в три строки по 17–21 знаку:
+   колонке нужна ширина хотя бы на две трети фразы */
+.hero-facts > div{min-width:190px;flex:1 1 190px;max-width:260px}
+
+/* описания врачей в четыре колонки давали меру строки 17–21 знак:
+   до 1440 px ставим по две карточки в ряд, дальше — все четыре */
+@media(min-width:760px) and (max-width:1439px){
+  #docs .grid.g4{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(min-width:1440px){
+  #docs .grid.g4{grid-template-columns:repeat(4,minmax(0,1fr))}
+}
+
+/* цитата в отзыве шла в 96 знаков — глаз теряет начало следующей строки */
+.rev blockquote, blockquote{max-width:62ch}
 </style>
 </head>
 <body>
@@ -576,7 +609,7 @@ footer{background:var(--ink);color:#A9B0BF;padding:var(--s5) 0 var(--s3);margin-
 <main id="main">
 
 <!-- ═══════════ герой ═══════════ -->
-<section class="hero">
+<section class="hero dark-bg">
   <div class="wrap hero-in">
     <div>
       <span class="eyebrow">
@@ -643,8 +676,8 @@ footer{background:var(--ink);color:#A9B0BF;padding:var(--s5) 0 var(--s3);margin-
 </section>
 
 <!-- ═══════════ разбор зуба ═══════════ -->
-<section class="xray" id="how">
-  <h2 class="sr-only">Что происходит внутри зуба</h2>
+<section class="xray dark-bg" id="how">
+  <h2 class="sr-only">Что происходит внутри зуба</h2>
   <div class="xray-track" id="xrayTrack">
     <div class="xray-pin">
       <div class="xray-vis">
@@ -718,14 +751,14 @@ footer{background:var(--ink);color:#A9B0BF;padding:var(--s5) 0 var(--s3);margin-
         <div class="step">
           <div class="step-n">03 · пульпа</div>
           <h3>Дошло до нерва — теперь это канал</h3>
-          <p>Воспалился нерв. Здесь и появляется та самая боль, из-за которой не спят. Нерв удаляется, каналы пломбируются под микроскопом, сверху ставится коронка.</p>
+          <p>Воспалился нерв, и здесь появляется та самая боль, из-за которой не спят. Нерв удаляется, каналы пломбируются под микроскопом, сверху ставится коронка.</p>
           <div class="step-fact">Лечение канала с коронкой — от 21 000 ₽, два-три визита.</div>
         </div>
         <div class="step">
           <div class="step-n">04 · лечение</div>
           <h3>Пломба закрывает то, что нашли вовремя</h3>
           <p>Очаг убран, полость заполнена, зуб снова целый. Разница между первой и третьей стадией — год ожидания и 16 500 ₽. Осмотр раз в полгода ловит проблему там, где она ещё дешёвая.</p>
-          <div class="step-fact">Осмотр с планом лечения — 0 ₽. Занимает 20 минут.</div>
+          <div class="step-fact">Осмотр с планом лечения стоит 0 ₽ и занимает 20 минут.</div>
         </div>
         <div class="xray-bar" id="xrayBar" role="tablist" aria-label="Стадии разрушения зуба">
           <button role="tab" type="button" data-i="0" aria-current="true" class="done"><b>01 ЭМАЛЬ</b><span></span></button>
@@ -740,7 +773,7 @@ footer{background:var(--ink);color:#A9B0BF;padding:var(--s5) 0 var(--s3);margin-
 </section>
 
 <!-- ═══════════ страх ═══════════ -->
-<section class="sec" id="fear">
+<section class="sec plain-bg" id="fear">
   <div class="wrap">
     <div class="sec-head rise">
       <h2>Больно не будет, и это не обещание, а протокол</h2>
@@ -751,7 +784,7 @@ footer{background:var(--ink);color:#A9B0BF;padding:var(--s5) 0 var(--s3);margin-
       <article class="card rise">
         <div class="card-ic"><svg width="23" height="23" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3l7 3.5v5.5c0 4.5-3 8-7 9.5-4-1.5-7-5-7-9.5V6.5L12 3z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M9 12.5l2 2 4-4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
         <h3>Укола вы не почувствуете</h3>
-        <p>Сначала гель на десну, через три минуты — игла толщиной 0,3 мм. Анестезия подаётся компьютером, медленно и под давлением: распирания нет.</p>
+        <p>Сначала наносим гель на десну, через три минуты входит игла толщиной 0,3 мм. Анестезия подаётся компьютером, медленно и под давлением: распирания нет.</p>
         <span class="pain">закрывает: страх иглы и укола</span>
       </article>
 
@@ -795,7 +828,7 @@ footer{background:var(--ink);color:#A9B0BF;padding:var(--s5) 0 var(--s3);margin-
 </section>
 
 <!-- ═══════════ деньги ═══════════ -->
-<section class="sec dark" id="money">
+<section class="sec dark dark-bg" id="money">
   <div class="wrap">
     <div class="sec-head rise">
       <h2>Сумму называем один раз</h2>
@@ -844,7 +877,7 @@ footer{background:var(--ink);color:#A9B0BF;padding:var(--s5) 0 var(--s3);margin-
 </section>
 
 <!-- ═══════════ калькулятор ═══════════ -->
-<section class="sec" id="calc">
+<section class="sec plain-bg" id="calc">
   <div class="wrap">
     <div class="sec-head rise">
       <h2>Посчитайте до того, как позвоните</h2>
@@ -876,7 +909,7 @@ footer{background:var(--ink);color:#A9B0BF;padding:var(--s5) 0 var(--s3);margin-
 </section>
 
 <!-- ═══════════ врачи ═══════════ -->
-<section class="sec" id="docs">
+<section class="sec plain-bg" id="docs">
   <div class="wrap">
     <div class="sec-head rise">
       <h2>Врача выбираете вы</h2>
@@ -915,7 +948,7 @@ footer{background:var(--ink);color:#A9B0BF;padding:var(--s5) 0 var(--s3);margin-
         <div class="doc-b">
           <h3>Тимур Хасанов</h3>
           <div class="doc-r">детская стоматология</div>
-          <p>Первый визит ребёнка — без лечения, только знакомство с кабинетом и креслом.</p>
+          <p>Первый визит ребёнка проходит без лечения: он знакомится с кабинетом и креслом.</p>
           <span class="doc-y mono">9 лет практики</span>
         </div>
       </article>
@@ -924,7 +957,7 @@ footer{background:var(--ink);color:#A9B0BF;padding:var(--s5) 0 var(--s3);margin-
 </section>
 
 <!-- ═══════════ кейсы ═══════════ -->
-<section class="sec dark" id="cases">
+<section class="sec dark dark-bg" id="cases">
   <div class="wrap">
     <div class="sec-head rise">
       <h2>До и после, с суммой и сроком</h2>
@@ -963,7 +996,7 @@ footer{background:var(--ink);color:#A9B0BF;padding:var(--s5) 0 var(--s3);margin-
 </section>
 
 <!-- ═══════════ отзывы ═══════════ -->
-<section class="sec" id="reviews">
+<section class="sec plain-bg" id="reviews">
   <div class="wrap">
     <div class="sec-head rise">
       <h2>Что пишут те, кто боялся</h2>
@@ -1007,7 +1040,7 @@ footer{background:var(--ink);color:#A9B0BF;padding:var(--s5) 0 var(--s3);margin-
 </section>
 
 <!-- ═══════════ прайс ═══════════ -->
-<section class="sec">
+<section class="sec plain-bg">
   <div class="wrap">
     <div class="sec-head rise">
       <h2>Сколько стоит основное</h2>
@@ -1034,10 +1067,10 @@ footer{background:var(--ink);color:#A9B0BF;padding:var(--s5) 0 var(--s3);margin-
 </section>
 
 <!-- ═══════════ faq ═══════════ -->
-<section class="sec" id="faq">
+<section class="sec plain-bg" id="faq">
   <div class="wrap">
     <div class="sec-head rise">
-      <h2>Спрашивают перед первым визитом</h2>
+      <h2>Спрашивают перед первым визитом</h2>
     </div>
     <div class="faq">
       <details class="q rise"><summary>Я не был у стоматолога много лет. Будете ругать?</summary><div class="q-a">Нет. Мы не задаём вопросов про прошлое и не комментируем состояние зубов оценочно. Задача первого визита — понять, что есть сейчас, и составить план. Стыд удерживает людей от лечения годами, и мы его не подпитываем.</div></details>
@@ -1051,10 +1084,10 @@ footer{background:var(--ink);color:#A9B0BF;padding:var(--s5) 0 var(--s3);margin-
 </section>
 
 <!-- ═══════════ запись ═══════════ -->
-<section class="sec" id="book">
+<section class="sec plain-bg" id="book">
   <div class="wrap">
     <div class="sec-head rise">
-      <h2>Запишитесь так, как вам удобнее</h2>
+      <h2>Запишитесь так, как вам удобнее</h2>
       <p>Администратор отвечает в рабочее время в течение пятнадцати минут: уточняет проблему, предлагает время и сразу называет ориентир по стоимости.</p>
     </div>
     <div class="book">
@@ -1076,14 +1109,14 @@ footer{background:var(--ink);color:#A9B0BF;padding:var(--s5) 0 var(--s3);margin-
         <div class="info">
           <div class="i-row">
             <svg width="19" height="19" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M10 18s6.5-5.2 6.5-10a6.5 6.5 0 1 0-13 0c0 4.8 6.5 10 6.5 10z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><circle cx="10" cy="8" r="2.4" stroke="currentColor" stroke-width="1.8"/></svg>
-            <div><div class="i-k">Адрес</div><div class="i-v">Псков, Октябрьский пр., 42, 2 этаж</div></div>
+            <div><div class="i-k">Адрес</div><div class="i-v">Псков, Октябрьский пр., 42, 2 этаж</div></div>
           </div>
           <div class="i-row">
             <svg width="19" height="19" viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="7.5" stroke="currentColor" stroke-width="1.8"/><path d="M10 5.5V10l3 2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
             <div><div class="i-k">Режим работы</div><div class="i-v">Пн–Сб 9:00–21:00</div><div class="i-k" style="margin-top:4px">Острая боль — приём в день обращения</div></div>
           </div>
         </div>
-        <div class="map"><span>КАРТА · Октябрьский пр., 42<br>вставить виджет Яндекс.Карт</span></div>
+        <div class="map"><span>КАРТА · Октябрьский пр., 42<br>вставить виджет Яндекс.Карт</span></div>
       </div>
 
       <form class="form rise" id="bookForm" novalidate>
@@ -1169,7 +1202,7 @@ footer{background:var(--ink);color:#A9B0BF;padding:var(--s5) 0 var(--s3);margin-
         <a href="https://t.me/emal_pskov" rel="noopener">Telegram</a>
         <a href="https://wa.me/78112505050" rel="noopener">WhatsApp</a>
         <a href="mailto:zapis@emal-pskov.ru">zapis@emal-pskov.ru</a>
-        <p class="f-ab" style="margin-top:12px">Псков, Октябрьский пр., 42<br>Пн–Сб 9:00–21:00</p>
+        <p class="f-ab" style="margin-top:12px">Псков, Октябрьский пр., 42<br>Пн–Сб 9:00–21:00</p>
       </div>
     </div>
     <div class="f-bot">
@@ -1316,7 +1349,7 @@ footer{background:var(--ink);color:#A9B0BF;padding:var(--s5) 0 var(--s3);margin-
       html += '<div class="row" data-id="' + w.id + '">' +
         '<div><div class="row-n">' + w.name + '</div>' +
         '<div class="row-p">' + rub(w.price) + ' / ' + w.per + '</div></div>' +
-        '<div class="step">' +
+        '<div class="qty">' +
           '<button type="button" data-d="-1" aria-label="Убрать, ' + w.name + '" disabled>\u2212</button>' +
           '<output>0</output>' +
           '<button type="button" data-d="1" aria-label="Добавить, ' + w.name + '">+</button>' +
