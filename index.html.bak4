@@ -3,8 +3,6 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<!-- образец работы: от поисковиков закрыт, перед запуском строку убрать -->
-<meta name="robots" content="noindex">
 <title>ЭМАЛЬ — стоматология в Пскове · Сначала объясняем, потом лечим</title>
 <meta name="description" content="Стоматология в Пскове: показываем, что происходит с зубом, до включения бормашины. Фиксированная смета, рассрочка 0%, без нотаций и навязанного лечения.">
 <meta name="theme-color" content="#14161F">
@@ -269,7 +267,8 @@ p{margin:0}
 .bento{grid-template-columns:repeat(6,1fr)}
 .bento > *{grid-column:span 2}
 .bento > *:first-child,.bento > *:nth-child(2){grid-column:span 2}
-.bento > *:first-child .card-ic{width:52px;height:52px;border-radius:15px}
+.bento > *:first-child h3{font-size:var(--t4)}
+.bento > *:first-child .card-ic{width:56px;height:56px;border-radius:16px}
 /* шесть карточек при дорожках 3 + 3 и 2 + 2 + 2 ложились 2 + 3 + 1, и в третьем
    ряду справа оставалось 765 px пустоты. Ровно два ряда по три: акцент на первой
    карточке остаётся кеглем заголовка и размером значка, а не шириной */
@@ -280,7 +279,7 @@ p{margin:0}
 .g4{grid-template-columns:repeat(auto-fit,minmax(236px,1fr))}
 .card{background:var(--white);border:1px solid var(--grey-line);border-radius:var(--r-l);padding:var(--s3);box-shadow:var(--sh1);
   transition:transform .22s var(--e),box-shadow .22s var(--e),border-color .22s var(--e)}
-.card{position:relative;overflow:hidden;display:flex;flex-direction:column}
+.card{position:relative;overflow:hidden}
 .card::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--cure),transparent);
   transform:scaleX(0);transition:transform .4s var(--e)}
 .card:hover::before{transform:scaleX(1)}
@@ -288,9 +287,7 @@ p{margin:0}
 .card-ic{width:46px;height:46px;border-radius:var(--r-m);display:grid;place-items:center;background:var(--cure-soft);color:var(--cure-ink);margin-bottom:19px}
 .card h3{margin-bottom:11px}
 .card p{color:var(--grey);font-size:var(--t2)}
-/* в ряду подписи стояли на разной высоте: карточка тянется колонкой,
-   а подпись прижата к низу */
-.card .pain{display:block;font-family:"Roboto Mono",monospace;font-size:var(--t1);color:var(--cure-ink);margin-top:auto;padding-top:13px;border-top:1px dashed var(--grey-line)}
+.card .pain{display:block;font-family:"Roboto Mono",monospace;font-size:var(--t1);color:var(--cure-ink);margin-top:15px;padding-top:13px;border-top:1px dashed var(--grey-line)}
 
 /* ── деньги ── */
 .money{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(24px,4vw,var(--s5));align-items:center}
@@ -473,11 +470,7 @@ footer{background:var(--ink);color:#A9B0BF;padding:var(--s5) 0 var(--s3);margin-
 .f-c a:hover{color:#A99BFF}
 .f-ab{font-size:var(--t2);line-height:1.45;margin-top:16px;max-width:33em}
 .f-bot{display:flex;justify-content:space-between;gap:var(--s2);flex-wrap:wrap;padding-top:var(--s3);font-size:var(--t1)}
-.f-docs{display:flex;gap:var(--s3);flex-wrap:wrap}
-.f-docs a{color:#A9B0BF;text-decoration:underline;text-underline-offset:3px;display:inline-flex;align-items:center;min-height:44px}
-.f-docs a:hover{color:#A99BFF}
-/* max-width 44em рвал строку по 44 знака, хотя в колонку влезает 76 */
-.f-lic{color:#7A8496;font-size:var(--t1);margin-top:14px;line-height:1.55}
+.f-lic{color:#7A8496;font-size:var(--t1);margin-top:14px;line-height:1.55;max-width:44em}
 
 /* ── появление ── */
 .rise{opacity:0;transform:translateY(24px);transition:opacity .6s var(--e),transform .6s var(--e)}
@@ -530,14 +523,7 @@ footer{background:var(--ink);color:#A9B0BF;padding:var(--s5) 0 var(--s3);margin-
 /* три одинаковые карточки подряд читаются как шаблон: главный отзыв шире соседей */
 @media(min-width:900px){
   #reviews .grid.g3{grid-template-columns:repeat(2,minmax(0,1fr))}
-  /* главный отзыв во всю ширину: цитата крупнее и рядом автор за вертикальной
-     линией — иначе правая половина карточки оставалась пустой */
-  #reviews .rev:first-child{grid-column:span 2;flex-flow:row wrap;align-items:center;
-    column-gap:clamp(28px,4vw,56px)}
-  #reviews .rev:first-child .stars{flex:0 0 100%}
-  #reviews .rev:first-child blockquote{flex:1 1 520px;font-size:var(--t3);line-height:1.4}
-  #reviews .rev:first-child .rev-w{flex:0 0 clamp(230px,20vw,280px);margin-top:0;padding-top:0;
-    border-top:0;border-left:1px solid var(--grey-line);padding-left:clamp(20px,2.4vw,32px)}
+  #reviews .rev:first-child{grid-column:span 2}
 }
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
 
@@ -563,15 +549,7 @@ html{scroll-padding-top:96px}
 /* блоки из трёх одинаковых карточек подряд читаются как шаблон: первый случай крупнее */
 @media(min-width:900px){
   #cases .grid.g3{grid-template-columns:repeat(2,minmax(0,1fr))}
-  /* первый случай во всю ширину: заголовок сверху, описание слева, цифры справа
-     за вертикальной линией — иначе правая половина карточки пустовала */
   #cases .case:first-child{grid-column:span 2}
-  #cases .case:first-child .case-b{display:flex;flex-wrap:wrap;align-items:center;
-    column-gap:clamp(28px,4vw,56px);row-gap:10px}
-  #cases .case:first-child h3{flex:0 0 100%}
-  #cases .case:first-child p{flex:1 1 420px;margin:0}
-  #cases .case:first-child .case-m{flex:0 0 clamp(280px,27vw,360px);margin-top:0;padding-top:0;
-    border-top:0;border-left:1px solid rgba(255,255,255,.14);padding-left:clamp(20px,2.4vw,32px)}
 }
 
 /* подписи фактов первого экрана вставали в три строки по 17–21 знаку:
@@ -811,7 +789,7 @@ html{scroll-padding-top:96px}
         </div>
         <div class="step">
           <div class="step-n">04 · лечение</div>
-          <h3>Пломба закрывает то, что нашли вовремя</h3>
+          <h3>Пломба закрывает то, что нашли вовремя</h3>
           <p>Очаг убран, полость заполнена, зуб снова целый. Разница между первой и третьей стадией — год ожидания и 16 500 ₽. Осмотр раз в полгода ловит проблему там, где она ещё дешёвая.</p>
           <div class="step-fact">Осмотр с планом лечения стоит 0 ₽ и занимает 20 минут.</div>
         </div>
@@ -1065,7 +1043,7 @@ html{scroll-padding-top:96px}
           <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 1l2 4.2 4.5.6-3.3 3.2.8 4.5L8 11.4 4 13.5l.8-4.5L1.5 5.8 6 5.2 8 1z"/></svg>
           <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 1l2 4.2 4.5.6-3.3 3.2.8 4.5L8 11.4 4 13.5l.8-4.5L1.5 5.8 6 5.2 8 1z"/></svg>
         </div>
-        <blockquote>Не была у стоматолога девять лет, стыдно было до слёз. Никто ничего не сказал про запущенность, просто показали снимок и расписали, что за чем. Ушла с планом и без чувства, что меня отчитали.</blockquote>
+        <blockquote>Не была у стоматолога девять лет, стыдно было до слёз. Никто ничего не сказал про запущенность, просто показали снимок и расписали, что за чем. Ушла с планом и без чувства, что меня отчитали.</blockquote>
         <div class="rev-w"><div class="rev-a">НК</div><div><div class="rev-n">Наталья К.</div><div class="rev-c">лечение кариеса, 4 зуба</div></div></div>
       </article>
       <article class="rev rise">
@@ -1215,7 +1193,7 @@ html{scroll-padding-top:96px}
         </div>
         <label class="consent">
           <input type="checkbox" id="fOk">
-          <span>Согласен на <a href="soglasie.html" target="_blank" rel="noopener">обработку персональных данных</a>. Номер нужен только для записи — в рассылки не попадёт.</span>
+          <span>Согласен на обработку персональных данных. Номер нужен только для записи — в рассылки не попадёт.</span>
         </label>
         <button type="submit" class="btn btn-main" style="width:100%">Записаться на осмотр</button>
         <div class="ok" id="okMsg">Записали. Администратор перезвонит в течение 15 минут и предложит время.</div>
@@ -1239,7 +1217,7 @@ html{scroll-padding-top:96px}
           <span><span class="logo-n">ЭМАЛЬ</span><span class="logo-s">стоматология · Псков</span></span>
         </a>
         <p class="f-ab">Объясняем до того, как начать. Фиксируем смету до первого укола и не читаем нотаций.</p>
-        <p class="f-lic">ООО «Эмаль» работает по лицензии № <span class="nowrap">ЛО-60-01-000000</span> от 00.00.0000. ИНН 6027112233, ОГРН 1146027009911, Псков, Октябрьский пр., 42. Имеются противопоказания, необходима консультация специалиста.</p>
+        <p class="f-lic">ООО «Эмаль» работает по лицензии № <span class="nowrap">ЛО-60-01-000000</span> от 00.00.0000. Имеются противопоказания, необходима консультация специалиста.</p>
       </div>
       <div class="f-c">
         <h3>Разделы</h3>
@@ -1262,7 +1240,6 @@ html{scroll-padding-top:96px}
     </div>
     <div class="f-bot">
       <span>© 2026 ЭМАЛЬ. Стоматология в Пскове.</span>
-      <span class="f-docs"><a href="policy.html">Политика обработки данных</a><a href="soglasie.html">Согласие на обработку данных</a></span>
       <span>Цены на сайте — ориентир, точная сумма фиксируется в плане лечения.</span>
     </div>
   </div>

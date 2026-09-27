@@ -3,10 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<!-- образец работы: от поисковиков закрыт, перед запуском строку убрать -->
-<meta name="robots" content="noindex">
 <title>ЭМАЛЬ — стоматология в Пскове · Сначала объясняем, потом лечим</title>
-<meta name="description" content="Стоматология в Пскове: показываем, что происходит с зубом, до включения бормашины. Фиксированная смета, рассрочка 0%, без нотаций и навязанного лечения.">
+<meta name="description" content="Стоматология в Пскове. Показываем, что происходит с зубом, до включения бормашины. Фиксированная смета, рассрочка 0%, без нотаций и навязанного лечения.">
 <meta name="theme-color" content="#14161F">
 <meta property="og:title" content="ЭМАЛЬ — стоматология в Пскове">
 <meta property="og:description" content="Сначала объясняем, потом лечим. Смета фиксируется до начала.">
@@ -33,7 +31,6 @@
   --r-s:8px; --r-m:14px; --r-l:20px; --r-xl:28px;
   --s1:8px; --s2:16px; --s3:24px; --s4:36px; --s5:56px; --s6:84px; --s7:120px;
   --max:1200px;
-  --disp:Geologica,"Geologica Fb",system-ui,sans-serif;
   /* шкала кеглей: шесть ступеней, соседние отличаются от 1,25 раза.
      t1 метки, t2 текст, t3 лид и подзаголовки, t4 крупные подзаголовки и суммы,
      t5 заголовки секций, t6 первый экран и инициалы */
@@ -47,28 +44,17 @@
   --sh2:0 3px 8px rgba(20,22,31,.08), 0 24px 60px rgba(20,22,31,.14);
 }
 
-/* запасные гарнитуры с подогнанной шириной: пока грузится веб-шрифт, строки
-   ложатся так же, и первый экран не прыгает. Замер 27.09.2026 в браузере:
-   Commissioner — 99,5 % ширины Arial, Geologica — 107,2 % */
-@font-face{font-family:"Commissioner Fb";src:local("Arial");size-adjust:99.5%}
-@font-face{font-family:"Geologica Fb";src:local("Arial");size-adjust:107.2%}
-
 *,*::before,*::after{box-sizing:border-box}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 body{
   margin:0;background:var(--bone);color:var(--ink);
-  font-family:Commissioner,"Commissioner Fb",system-ui,-apple-system,"Segoe UI",sans-serif;
+  font-family:Commissioner,system-ui,-apple-system,"Segoe UI",sans-serif;
   font-size:var(--t2);line-height:1.45;-webkit-font-smoothing:antialiased;overflow-x:hidden;
 }
 img{max-width:100%;display:block}
-/* последняя строка из одного слова: браузер сам подбирает перенос,
-   заголовок выравнивается по строкам */
-p,li,blockquote,figcaption,dd,summary{text-wrap:pretty}
-h1,h2,h3,h4{text-wrap:balance}
-.nowrap{white-space:nowrap}
 a{color:inherit}
 button{font:inherit;color:inherit}
-h1,h2,h3,h4{font-family:var(--disp);margin:0;line-height:1.06;letter-spacing:-.025em;font-weight:600}
+h1,h2,h3,h4{font-family:Geologica,system-ui,sans-serif;margin:0;line-height:1.06;letter-spacing:-.025em;font-weight:600}
 h1{font-size:var(--t6);font-weight:700}
 h2{font-size:var(--t5)}
 h3{font-size:var(--t3);line-height:1.25}
@@ -100,7 +86,7 @@ p{margin:0}
 .top-in{display:flex;align-items:center;gap:var(--s3);height:68px}
 .logo{display:flex;align-items:center;gap:11px;text-decoration:none;color:#fff;flex-shrink:0;padding:6px 0}
 .logo-m{width:32px;height:32px;flex-shrink:0}
-.logo-n{font-family:var(--disp);font-weight:700;font-size:var(--t3);letter-spacing:.14em;display:block}
+.logo-n{font-family:Geologica;font-weight:700;font-size:var(--t3);letter-spacing:.14em;display:block}
 .logo-s{font-size:var(--t1);color:#9BA3B4;letter-spacing:.14em;text-transform:uppercase;margin-top:-2px;display:block}
 .nav{display:flex;margin-left:auto;gap:1px}
 .nav a{color:#C6CBD6;text-decoration:none;font-size:var(--t2);padding:10px 12px;border-radius:var(--r-s);transition:color .18s var(--e),background .18s var(--e)}
@@ -142,7 +128,7 @@ p{margin:0}
 .hero-lead{margin-top:22px;font-size:var(--t2);color:#C4CAD6;max-width:33em}
 .hero-acts{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
 .hero-facts{display:flex;flex-wrap:wrap;gap:28px;margin-top:38px;padding-top:26px;border-top:1px solid rgba(255,255,255,.12)}
-.f-n{font-family:var(--disp);font-weight:700;font-size:var(--t4);line-height:1}
+.f-n{font-family:Geologica;font-weight:700;font-size:var(--t4);line-height:1}
 .f-t{font-size:var(--t1);color:#94A0B2;margin-top:6px;line-height:1.4}
 
 /* ── 3D-зуб ── */
@@ -188,6 +174,9 @@ p{margin:0}
 
 /* ══════════════════ секции ══════════════════ */
 .sec{padding:clamp(58px,7.5vw,var(--s7)) 0;position:relative}
+/* у соседних секций одного фона нижний отступ складывается с верхним и читается
+   пустой полосой: между ними оставляем одну ступень ритма вместо двух */
+.sec.plain-bg + .sec.plain-bg{padding-top:clamp(18px,2.3vw,38px)}
 .sec-head{max-width:54ch;margin-bottom:clamp(30px,4vw,var(--s5))}
 .tag{font-family:"Roboto Mono",monospace;font-size:var(--t1);letter-spacing:.14em;color:var(--cure-ink);display:block;margin-bottom:15px}
 .sec-head p{margin-top:17px;color:var(--grey);font-size:var(--t3)}
@@ -268,19 +257,16 @@ p{margin:0}
 .g3{grid-template-columns:repeat(auto-fit,minmax(290px,1fr))}
 .bento{grid-template-columns:repeat(6,1fr)}
 .bento > *{grid-column:span 2}
-.bento > *:first-child,.bento > *:nth-child(2){grid-column:span 2}
-.bento > *:first-child .card-ic{width:52px;height:52px;border-radius:15px}
-/* шесть карточек при дорожках 3 + 3 и 2 + 2 + 2 ложились 2 + 3 + 1, и в третьем
-   ряду справа оставалось 765 px пустоты. Ровно два ряда по три: акцент на первой
-   карточке остаётся кеглем заголовка и размером значка, а не шириной */
-@media (max-width:1024px){.bento{grid-template-columns:repeat(4,1fr)}.bento > *{grid-column:span 2}
-  .bento > *:first-child,.bento > *:nth-child(2){grid-column:span 2}}
-@media (max-width:640px){.bento{grid-template-columns:1fr}
-  .bento > *,.bento > *:first-child,.bento > *:nth-child(2){grid-column:span 1}}
+.bento > *:first-child{grid-column:span 3}
+.bento > *:nth-child(2){grid-column:span 3}
+.bento > *:first-child h3{font-size:var(--t4)}
+.bento > *:first-child .card-ic{width:56px;height:56px;border-radius:16px}
+@media (max-width:1024px){.bento{grid-template-columns:repeat(4,1fr)}.bento > *{grid-column:span 2}.bento > *:first-child,.bento > *:nth-child(2){grid-column:span 4}}
+@media (max-width:640px){.bento{grid-template-columns:1fr}.bento > *,.bento > *:first-child,.bento > *:nth-child(2){grid-column:span 1}}
 .g4{grid-template-columns:repeat(auto-fit,minmax(236px,1fr))}
 .card{background:var(--white);border:1px solid var(--grey-line);border-radius:var(--r-l);padding:var(--s3);box-shadow:var(--sh1);
   transition:transform .22s var(--e),box-shadow .22s var(--e),border-color .22s var(--e)}
-.card{position:relative;overflow:hidden;display:flex;flex-direction:column}
+.card{position:relative;overflow:hidden}
 .card::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--cure),transparent);
   transform:scaleX(0);transition:transform .4s var(--e)}
 .card:hover::before{transform:scaleX(1)}
@@ -288,9 +274,7 @@ p{margin:0}
 .card-ic{width:46px;height:46px;border-radius:var(--r-m);display:grid;place-items:center;background:var(--cure-soft);color:var(--cure-ink);margin-bottom:19px}
 .card h3{margin-bottom:11px}
 .card p{color:var(--grey);font-size:var(--t2)}
-/* в ряду подписи стояли на разной высоте: карточка тянется колонкой,
-   а подпись прижата к низу */
-.card .pain{display:block;font-family:"Roboto Mono",monospace;font-size:var(--t1);color:var(--cure-ink);margin-top:auto;padding-top:13px;border-top:1px dashed var(--grey-line)}
+.card .pain{display:block;font-family:"Roboto Mono",monospace;font-size:var(--t1);color:var(--cure-ink);margin-top:15px;padding-top:13px;border-top:1px dashed var(--grey-line)}
 
 /* ── деньги ── */
 .money{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(24px,4vw,var(--s5));align-items:center}
@@ -303,7 +287,7 @@ p{margin:0}
 .bill li b{font-family:"Roboto Mono",monospace;font-weight:600;white-space:nowrap}
 .bill-t{padding:18px var(--s3);border-top:2px solid var(--ink);display:flex;justify-content:space-between;align-items:baseline;gap:12px}
 .bill-t span{font-size:var(--t2);color:var(--grey)}
-.bill-t b{font-family:var(--disp);font-weight:700;font-size:var(--t4)}
+.bill-t b{font-family:Geologica;font-weight:700;font-size:var(--t4)}
 .bill-note{padding:0 var(--s3) var(--s3);font-size:var(--t1);color:var(--grey);line-height:1.5}
 .pay{display:grid;gap:11px;margin-top:var(--s3)}
 .pay div{display:flex;gap:13px;align-items:flex-start;font-size:var(--t2)}
@@ -317,7 +301,7 @@ p{margin:0}
   background:linear-gradient(180deg,transparent 40%,rgba(110,91,240,.42));opacity:0;transition:opacity .3s var(--e)}
 .doc:hover .ph::before{opacity:1}
 .doc:hover{transform:translateY(-4px);box-shadow:var(--sh2)}
-.ini{aspect-ratio:16/10;display:grid;place-items:center;background:linear-gradient(155deg,var(--cure-soft),#DCD6FB 58%,var(--cure-soft));color:var(--cure-ink);font-weight:700;font-size:var(--t6);letter-spacing:-.02em;font-family:var(--disp)}
+.ini{aspect-ratio:16/10;display:grid;place-items:center;background:linear-gradient(155deg,var(--cure-soft),#DCD6FB 58%,var(--cure-soft));color:var(--cure-ink);font-weight:700;font-size:var(--t6);letter-spacing:-.02em;font-family:Geologica,system-ui,sans-serif}
 .ph::after{content:"";position:absolute;inset:0;background-image:radial-gradient(circle at 1px 1px,rgba(255,255,255,.5) 1px,transparent 0);background-size:18px 18px}
 .ph span{position:relative;z-index:1;font-family:"Roboto Mono",monospace;font-size:var(--t1);letter-spacing:.08em}
 .doc-b{padding:19px var(--s3) var(--s3)}
@@ -345,14 +329,14 @@ p{margin:0}
 .stars{display:flex;gap:3px;margin-bottom:15px;color:var(--cure)}
 .rev blockquote{margin:0;font-size:var(--t2);line-height:1.45;flex:1}
 .rev-w{display:flex;align-items:center;gap:12px;margin-top:20px;padding-top:16px;border-top:1px solid var(--grey-line)}
-.rev-a{width:42px;height:42px;border-radius:50%;background:var(--ink);color:#fff;display:grid;place-items:center;font-family:var(--disp);font-weight:600;font-size:var(--t2);flex-shrink:0}
+.rev-a{width:42px;height:42px;border-radius:50%;background:var(--ink);color:#fff;display:grid;place-items:center;font-family:Geologica;font-weight:600;font-size:var(--t2);flex-shrink:0}
 .rev-n{font-weight:600;font-size:var(--t2)}
 .rev-c{font-size:var(--t1);color:var(--grey)}
 
 /* ── прайс ── */
 .price-t{background:var(--white);border:1px solid var(--grey-line);border-radius:var(--r-l);overflow:hidden;box-shadow:var(--sh1)}
 .price-t table{width:100%;border-collapse:collapse}
-.price-t th{text-align:left;padding:16px var(--s3);background:var(--ink);color:#fff;font-family:var(--disp);font-weight:600;font-size:var(--t2)}
+.price-t th{text-align:left;padding:16px var(--s3);background:var(--ink);color:#fff;font-family:Geologica;font-weight:600;font-size:var(--t2)}
 .price-t th:last-child{text-align:right}
 .price-t td{padding:15px var(--s3);border-bottom:1px solid var(--grey-line);font-size:var(--t2)}
 .price-t td:last-child{text-align:right;font-family:"Roboto Mono",monospace;white-space:nowrap}
@@ -442,11 +426,11 @@ p{margin:0}
 .cs-total{display:flex;justify-content:space-between;align-items:baseline;gap:12px;
   margin-top:16px;padding-top:16px;border-top:1px solid rgba(255,255,255,.16)}
 .cs-total span{font-size:var(--t2);color:#9BA3B4}
-.cs-total b{font-family:var(--disp);font-weight:700;font-size:var(--t4);line-height:1}
+.cs-total b{font-family:Geologica;font-weight:700;font-size:var(--t4);line-height:1}
 .cs-split{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:18px}
 .cs-split div{background:rgba(110,91,240,.18);border:1px solid rgba(110,91,240,.34);border-radius:var(--r-m);padding:13px 14px}
 .cs-split i{display:block;font-style:normal;font-size:var(--t1);color:#C8C0FC;line-height:1.35}
-.cs-split b{display:block;font-family:var(--disp);font-weight:600;font-size:var(--t3);margin-top:7px}
+.cs-split b{display:block;font-family:Geologica;font-weight:600;font-size:var(--t3);margin-top:7px}
 .cs-note{font-size:var(--t1);color:#98A1AF;line-height:1.5;margin-top:16px}
 .cs-in .btn{margin-top:16px}
 .cs-reset{width:100%;margin-top:10px;min-height:44px;background:none;border:0;cursor:pointer;
@@ -468,16 +452,12 @@ p{margin:0}
 /* ── футер ── */
 footer{background:var(--ink);color:#A9B0BF;padding:var(--s5) 0 var(--s3);margin-top:var(--s6)}
 .f-top{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:var(--s4);padding-bottom:var(--s4);border-bottom:1px solid rgba(255,255,255,.1)}
-.f-c h4{color:#fff;font-size:var(--t2);margin-bottom:16px;font-family:var(--disp);font-weight:600}
+.f-c h4{color:#fff;font-size:var(--t2);margin-bottom:16px;font-family:Geologica;font-weight:600}
 .f-c a{display:block;color:#A9B0BF;text-decoration:none;padding:11px 0;font-size:var(--t2)}
 .f-c a:hover{color:#A99BFF}
 .f-ab{font-size:var(--t2);line-height:1.45;margin-top:16px;max-width:33em}
 .f-bot{display:flex;justify-content:space-between;gap:var(--s2);flex-wrap:wrap;padding-top:var(--s3);font-size:var(--t1)}
-.f-docs{display:flex;gap:var(--s3);flex-wrap:wrap}
-.f-docs a{color:#A9B0BF;text-decoration:underline;text-underline-offset:3px;display:inline-flex;align-items:center;min-height:44px}
-.f-docs a:hover{color:#A99BFF}
-/* max-width 44em рвал строку по 44 знака, хотя в колонку влезает 76 */
-.f-lic{color:#7A8496;font-size:var(--t1);margin-top:14px;line-height:1.55}
+.f-lic{color:#7A8496;font-size:var(--t1);margin-top:14px;line-height:1.55;max-width:44em}
 
 /* ── появление ── */
 .rise{opacity:0;transform:translateY(24px);transition:opacity .6s var(--e),transform .6s var(--e)}
@@ -529,15 +509,8 @@ footer{background:var(--ink);color:#A9B0BF;padding:var(--s5) 0 var(--s3);margin-
 
 /* три одинаковые карточки подряд читаются как шаблон: главный отзыв шире соседей */
 @media(min-width:900px){
-  #reviews .grid.g3{grid-template-columns:repeat(2,minmax(0,1fr))}
-  /* главный отзыв во всю ширину: цитата крупнее и рядом автор за вертикальной
-     линией — иначе правая половина карточки оставалась пустой */
-  #reviews .rev:first-child{grid-column:span 2;flex-flow:row wrap;align-items:center;
-    column-gap:clamp(28px,4vw,56px)}
-  #reviews .rev:first-child .stars{flex:0 0 100%}
-  #reviews .rev:first-child blockquote{flex:1 1 520px;font-size:var(--t3);line-height:1.4}
-  #reviews .rev:first-child .rev-w{flex:0 0 clamp(230px,20vw,280px);margin-top:0;padding-top:0;
-    border-top:0;border-left:1px solid var(--grey-line);padding-left:clamp(20px,2.4vw,32px)}
+  #reviews .grid.g3{grid-template-columns:repeat(3,minmax(0,1fr))}
+  #reviews .rev:first-child{grid-column:span 2}
 }
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
 
@@ -562,16 +535,8 @@ html{scroll-padding-top:96px}
 
 /* блоки из трёх одинаковых карточек подряд читаются как шаблон: первый случай крупнее */
 @media(min-width:900px){
-  #cases .grid.g3{grid-template-columns:repeat(2,minmax(0,1fr))}
-  /* первый случай во всю ширину: заголовок сверху, описание слева, цифры справа
-     за вертикальной линией — иначе правая половина карточки пустовала */
+  #cases .grid.g3{grid-template-columns:repeat(3,minmax(0,1fr))}
   #cases .case:first-child{grid-column:span 2}
-  #cases .case:first-child .case-b{display:flex;flex-wrap:wrap;align-items:center;
-    column-gap:clamp(28px,4vw,56px);row-gap:10px}
-  #cases .case:first-child h3{flex:0 0 100%}
-  #cases .case:first-child p{flex:1 1 420px;margin:0}
-  #cases .case:first-child .case-m{flex:0 0 clamp(280px,27vw,360px);margin-top:0;padding-top:0;
-    border-top:0;border-left:1px solid rgba(255,255,255,.14);padding-left:clamp(20px,2.4vw,32px)}
 }
 
 /* подписи фактов первого экрана вставали в три строки по 17–21 знаку:
@@ -580,20 +545,11 @@ html{scroll-padding-top:96px}
 
 /* описания врачей в четыре колонки давали меру строки 17–21 знак:
    до 1440 px ставим по две карточки в ряд, дальше — все четыре */
-@media(min-width:760px){
+@media(min-width:760px) and (max-width:1439px){
   #docs .grid.g4{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
-/* от 1440 px карточка врача разворачивается в строку: плашка слева, текст справа.
-   В четырёх колонках описание ложилось по 17–21 знаку, а в двух плашка занимала
-   558 px по ширине и 744 по высоте */
 @media(min-width:1440px){
-  #docs .doc{display:grid;grid-template-columns:170px 1fr}
-  #docs .doc-b{padding:20px 20px 22px}
-  #docs .ini{aspect-ratio:auto;height:100%}
-}
-/* на телефоне поля карточки съедали строку до 29 знаков */
-@media(max-width:759px){
-  .doc-b{padding:18px 15px 20px}
+  #docs .grid.g4{grid-template-columns:repeat(4,minmax(0,1fr))}
 }
 
 /* цитата в отзыве шла в 96 знаков — глаз теряет начало следующей строки */
@@ -674,7 +630,7 @@ html{scroll-padding-top:96px}
       <h1>Сначала <em>объясняем</em>,<br>потом лечим</h1>
       <p class="hero-lead">
         Показываем на экране, что происходит внутри зуба, называем сумму целиком
-        и только потом берём инструмент. Пугает не боль, а неизвестность.
+        и только потом берём инструмент. Страшно не от боли — страшно от неизвестности.
       </p>
       <div class="hero-acts">
         <a class="btn btn-main" href="#book">Записаться на осмотр</a>
@@ -811,7 +767,7 @@ html{scroll-padding-top:96px}
         </div>
         <div class="step">
           <div class="step-n">04 · лечение</div>
-          <h3>Пломба закрывает то, что нашли вовремя</h3>
+          <h3>Пломба закрывает то, что нашли вовремя</h3>
           <p>Очаг убран, полость заполнена, зуб снова целый. Разница между первой и третьей стадией — год ожидания и 16 500 ₽. Осмотр раз в полгода ловит проблему там, где она ещё дешёвая.</p>
           <div class="step-fact">Осмотр с планом лечения стоит 0 ₽ и занимает 20 минут.</div>
         </div>
@@ -910,19 +866,19 @@ html{scroll-padding-top:96px}
         <div class="pay">
           <div>
             <svg width="21" height="21" viewBox="0 0 22 22" fill="none" aria-hidden="true"><rect x="2" y="5" width="18" height="13" rx="2.4" stroke="currentColor" stroke-width="2"/><path d="M2 9.5h18" stroke="currentColor" stroke-width="2"/></svg>
-            <span><b>Рассрочка 0% до 12 месяцев</b> — оформляется в клинике за 15 минут, переплаты нет: проценты платим мы.</span>
+            <span><b>Рассрочка 0% до 12 месяцев.</b> Оформляется в клинике за 15 минут, переплаты нет — проценты платим мы.</span>
           </div>
           <div>
             <svg width="21" height="21" viewBox="0 0 22 22" fill="none" aria-hidden="true"><path d="M4 3h10l4 4v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M13 3v5h5M7 12h8M7 16h5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-            <span><b>Налоговый вычет 13%</b> — документы для налоговой готовим сами и отдаём вместе с чеком, просить не нужно.</span>
+            <span><b>Налоговый вычет 13%.</b> Документы для налоговой готовим сами и отдаём вместе с чеком, просить не нужно.</span>
           </div>
           <div>
             <svg width="21" height="21" viewBox="0 0 22 22" fill="none" aria-hidden="true"><path d="M19 11a8 8 0 1 1-3-6.2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M19.5 3.5V8H15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            <span><b>Гарантия 3 года на пломбы, 10 лет на импланты</b> — переделываем бесплатно, без экспертиз и споров.</span>
+            <span><b>Гарантия 3 года на пломбы, 10 лет на импланты.</b> Переделываем бесплатно, без экспертиз и споров.</span>
           </div>
           <div>
             <svg width="21" height="21" viewBox="0 0 22 22" fill="none" aria-hidden="true"><path d="M11 2l2.6 5.6 6 .8-4.4 4.2 1.1 6L11 15.8 5.7 18.6l1.1-6L2.4 8.4l6-.8L11 2z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
-            <span><b>Лечение по частям</b> — если сумма неподъёмная, расставим работы по срочности и растянем на полгода без вреда для зубов.</span>
+            <span><b>Лечение по частям.</b> Если сумма неподъёмная — расставим работы по срочности и растянем на полгода без вреда для зубов.</span>
           </div>
         </div>
         <a class="btn btn-line" href="#book" style="margin-top:26px">Получить план лечения бесплатно</a>
@@ -994,7 +950,7 @@ html{scroll-padding-top:96px}
         <div class="doc-b">
           <h3>Алина Верещагина</h3>
           <div class="doc-r">ортодонтия · брекеты, элайнеры</div>
-          <p>Ставит брекеты и капы взрослым, результат показывает в 3D до начала лечения.</p>
+          <p>Исправление прикуса у взрослых. Показывает результат в 3D до начала лечения.</p>
           <span class="doc-y mono">12 лет практики</span>
         </div>
       </article>
@@ -1003,7 +959,7 @@ html{scroll-padding-top:96px}
         <div class="doc-b">
           <h3>Тимур Хасанов</h3>
           <div class="doc-r">детская стоматология</div>
-          <p>Первый визит без лечения: ребёнок привыкает к кабинету и креслу.</p>
+          <p>Первый визит ребёнка проходит без лечения: он знакомится с кабинетом и креслом.</p>
           <span class="doc-y mono">9 лет практики</span>
         </div>
       </article>
@@ -1016,13 +972,13 @@ html{scroll-padding-top:96px}
   <div class="wrap">
     <div class="sec-head rise">
       <h2>До и после, с суммой и сроком</h2>
-      <p>Суммы приводим фактические, из закрытых планов лечения. Снимки до и после показываем на приёме: публикуем их только с письменного согласия пациента.</p>
+      <p>Фотографии наших пациентов, опубликованы с их письменного согласия. Суммы — фактические, по закрытым планам лечения.</p>
     </div>
     <div class="grid g3">
       <article class="case rise">
         <div class="case-b">
           <h3>Восстановление жевательной группы</h3>
-          <p>Два разрушенных зуба, пациент не лечился одиннадцать лет — обошлись без удаления.</p>
+          <p>Два разрушенных зуба, пациент не лечился одиннадцать лет. Обошлись без удаления.</p>
           <div class="case-m">
             <div><i>СУММА</i>64 300 ₽</div><div><i>СРОК</i>3 недели</div><div><i>ВРАЧ</i>И. Соколова</div>
           </div>
@@ -1040,7 +996,7 @@ html{scroll-padding-top:96px}
       <article class="case rise">
         <div class="case-b">
           <h3>Прикус у взрослого, элайнеры</h3>
-          <p>Скученность нижних резцов исправили без брекетов: прозрачные капы, снимаются на время еды.</p>
+          <p>Скученность нижних резцов. Без брекетов — прозрачные капы, снимаются на время еды.</p>
           <div class="case-m">
             <div><i>СУММА</i>168 000 ₽</div><div><i>СРОК</i>14 месяцев</div><div><i>ВРАЧ</i>А. Верещагина</div>
           </div>
@@ -1065,7 +1021,7 @@ html{scroll-padding-top:96px}
           <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 1l2 4.2 4.5.6-3.3 3.2.8 4.5L8 11.4 4 13.5l.8-4.5L1.5 5.8 6 5.2 8 1z"/></svg>
           <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 1l2 4.2 4.5.6-3.3 3.2.8 4.5L8 11.4 4 13.5l.8-4.5L1.5 5.8 6 5.2 8 1z"/></svg>
         </div>
-        <blockquote>Не была у стоматолога девять лет, стыдно было до слёз. Никто ничего не сказал про запущенность, просто показали снимок и расписали, что за чем. Ушла с планом и без чувства, что меня отчитали.</blockquote>
+        <blockquote>Не была у стоматолога девять лет, стыдно было до слёз. Никто ничего не сказал про запущенность, просто показали снимок и расписали, что за чем. Ушла с планом и без чувства, что меня отчитали.</blockquote>
         <div class="rev-w"><div class="rev-a">НК</div><div><div class="rev-n">Наталья К.</div><div class="rev-c">лечение кариеса, 4 зуба</div></div></div>
       </article>
       <article class="rev rise">
@@ -1076,7 +1032,7 @@ html{scroll-padding-top:96px}
           <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 1l2 4.2 4.5.6-3.3 3.2.8 4.5L8 11.4 4 13.5l.8-4.5L1.5 5.8 6 5.2 8 1z"/></svg>
           <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 1l2 4.2 4.5.6-3.3 3.2.8 4.5L8 11.4 4 13.5l.8-4.5L1.5 5.8 6 5.2 8 1z"/></svg>
         </div>
-        <blockquote>Считали 19 100 ₽, отдал 19 100 ₽. Для стоматологии это, оказывается, новость. По ходу нашли ещё один подозрительный зуб — не стали трогать молча, показали снимок и спросили.</blockquote>
+        <blockquote>Считали 19 100, отдал 19 100. Для стоматологии это, оказывается, новость. По ходу нашли ещё один подозрительный зуб — не стали трогать молча, показали снимок и спросили.</blockquote>
         <div class="rev-w"><div class="rev-a">ДП</div><div><div class="rev-n">Дмитрий П.</div><div class="rev-c">план лечения, 19 100 ₽</div></div></div>
       </article>
       <article class="rev rise">
@@ -1099,7 +1055,7 @@ html{scroll-padding-top:96px}
   <div class="wrap">
     <div class="sec-head rise">
       <h2>Сколько стоит основное</h2>
-      <p>Цены за законченную работу, вместе с анестезией и снимками. Точную сумму по вашему случаю назовём в плане лечения после осмотра.</p>
+      <p>Цены за законченную работу, вместе с анестезией и снимками. Точная сумма по вашему случаю — в плане лечения после осмотра.</p>
     </div>
     <div class="price-t scroll-x rise">
       <table>
@@ -1131,7 +1087,7 @@ html{scroll-padding-top:96px}
       <details class="q rise"><summary>Я не был у стоматолога много лет. Будете ругать?</summary><div class="q-a">Нет. Мы не задаём вопросов про прошлое и не комментируем состояние зубов оценочно. Задача первого визита — понять, что есть сейчас, и составить план. Стыд удерживает людей от лечения годами, и мы его не подпитываем.</div></details>
       <details class="q rise"><summary>Осмотр правда бесплатный?</summary><div class="q-a">Да: осмотр, панорамный снимок и письменный план лечения с суммами — ноль рублей, без условий и без обязательства лечиться у нас. План можете забрать и сравнить с другими клиниками.</div></details>
       <details class="q rise"><summary>А если по ходу лечения найдётся ещё что-то?</summary><div class="q-a">Врач останавливается, показывает снимок и называет новую сумму. Пока вы не согласились — работа не идёт, и деньги за это не берутся. Сумма в подписанном плане не меняется задним числом.</div></details>
-      <details class="q rise"><summary>Мне страшно — можно вообще ничего не чувствовать?</summary><div class="q-a">Есть седация закисью азота: вы в сознании и разговариваете, но тревога уходит. Для сложных случаев работаем с анестезиологом под наркозом: записываем заранее, после отдельной консультации.</div></details>
+      <details class="q rise"><summary>Мне очень страшно. Есть вариант вообще ничего не чувствовать?</summary><div class="q-a">Есть седация закисью азота: вы в сознании и разговариваете, но тревога уходит. Для сложных случаев доступен наркоз с анестезиологом — по предварительной записи и после консультации.</div></details>
       <details class="q rise"><summary>Делаете детям?</summary><div class="q-a">Да, с трёх лет. Первый визит — знакомство без лечения: ребёнок садится в кресло, трогает инструменты, ничего не происходит. Так снимается страх, который иначе остаётся на всю жизнь.</div></details>
       <details class="q rise"><summary>Как получить налоговый вычет?</summary><div class="q-a">Мы готовим справку для налоговой и копию лицензии сами и отдаём вместе с чеком. Вернуть можно 13% от суммы лечения, а стоматология относится к категории, где вычет не ограничен потолком в 150 000 ₽.</div></details>
     </div>
@@ -1215,7 +1171,7 @@ html{scroll-padding-top:96px}
         </div>
         <label class="consent">
           <input type="checkbox" id="fOk">
-          <span>Согласен на <a href="soglasie.html" target="_blank" rel="noopener">обработку персональных данных</a>. Номер нужен только для записи — в рассылки не попадёт.</span>
+          <span>Согласен на обработку персональных данных. Номер нужен только для записи — в рассылки не попадёт.</span>
         </label>
         <button type="submit" class="btn btn-main" style="width:100%">Записаться на осмотр</button>
         <div class="ok" id="okMsg">Записали. Администратор перезвонит в течение 15 минут и предложит время.</div>
@@ -1238,8 +1194,8 @@ html{scroll-padding-top:96px}
           </svg>
           <span><span class="logo-n">ЭМАЛЬ</span><span class="logo-s">стоматология · Псков</span></span>
         </a>
-        <p class="f-ab">Объясняем до того, как начать. Фиксируем смету до первого укола и не читаем нотаций.</p>
-        <p class="f-lic">ООО «Эмаль» работает по лицензии № <span class="nowrap">ЛО-60-01-000000</span> от 00.00.0000. ИНН 6027112233, ОГРН 1146027009911, Псков, Октябрьский пр., 42. Имеются противопоказания, необходима консультация специалиста.</p>
+        <p class="f-ab">Объясняем до того, как начать. Фиксируем смету до первого укола. Не читаем нотаций.</p>
+        <p class="f-lic">ООО «Эмаль». Лицензия № ЛО-60-01-000000 от 00.00.0000. Имеются противопоказания, необходима консультация специалиста.</p>
       </div>
       <div class="f-c">
         <h3>Разделы</h3>
@@ -1262,7 +1218,6 @@ html{scroll-padding-top:96px}
     </div>
     <div class="f-bot">
       <span>© 2026 ЭМАЛЬ. Стоматология в Пскове.</span>
-      <span class="f-docs"><a href="policy.html">Политика обработки данных</a><a href="soglasie.html">Согласие на обработку данных</a></span>
       <span>Цены на сайте — ориентир, точная сумма фиксируется в плане лечения.</span>
     </div>
   </div>
