@@ -495,6 +495,18 @@ footer{background:var(--ink);color:#A9B0BF;padding:var(--s5) 0 var(--s3);margin-
 }
 @media print{.top,.field{display:none}}
 @media(min-width:760px){.ini{aspect-ratio:3/4}}
+
+/* три одинаковые карточки подряд читаются как шаблон: главный отзыв шире соседей */
+@media(min-width:900px){
+  #reviews .grid.g3{grid-template-columns:repeat(3,minmax(0,1fr))}
+  #reviews .rev:first-child{grid-column:span 2}
+}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+
+/* цели под палец: в подвале ссылки были высотой 20 px, палец промахивался */
+@media(max-width:760px){
+  footer a, .ftr a, .foot a{display:inline-flex;align-items:center;min-height:44px}
+}
 </style>
 </head>
 <body>
@@ -629,6 +641,7 @@ footer{background:var(--ink);color:#A9B0BF;padding:var(--s5) 0 var(--s3);margin-
 
 <!-- ═══════════ разбор зуба ═══════════ -->
 <section class="xray" id="how">
+  <h2 class="sr-only">Что происходит внутри зуба</h2>
   <div class="xray-track" id="xrayTrack">
     <div class="xray-pin">
       <div class="xray-vis">
@@ -712,10 +725,10 @@ footer{background:var(--ink);color:#A9B0BF;padding:var(--s5) 0 var(--s3);margin-
           <div class="step-fact">Осмотр с планом лечения — 0 ₽. Занимает 20 минут.</div>
         </div>
         <div class="xray-bar" id="xrayBar" role="tablist" aria-label="Стадии разрушения зуба">
-          <button type="button" data-i="0" aria-current="true" class="done"><b>01 ЭМАЛЬ</b><span></span></button>
-          <button type="button" data-i="1"><b>02 ДЕНТИН</b><span></span></button>
-          <button type="button" data-i="2"><b>03 ПУЛЬПА</b><span></span></button>
-          <button type="button" data-i="3"><b>04 ЛЕЧЕНИЕ</b><span></span></button>
+          <button role="tab" type="button" data-i="0" aria-current="true" class="done"><b>01 ЭМАЛЬ</b><span></span></button>
+          <button role="tab" type="button" data-i="1"><b>02 ДЕНТИН</b><span></span></button>
+          <button role="tab" type="button" data-i="2"><b>03 ПУЛЬПА</b><span></span></button>
+          <button role="tab" type="button" data-i="3"><b>04 ЛЕЧЕНИЕ</b><span></span></button>
         </div>
         <p class="xray-hint">Листайте — или выберите стадию</p>
       </div>
@@ -727,7 +740,6 @@ footer{background:var(--ink);color:#A9B0BF;padding:var(--s5) 0 var(--s3);margin-
 <section class="sec" id="fear">
   <div class="wrap">
     <div class="sec-head rise">
-      <span class="tag">про боль</span>
       <h2>Больно не будет, и это не обещание, а протокол</h2>
       <p>Пациенты откладывают лечение годами из-за звука бормашины, укола и рвотного рефлекса. С каждым из этих страхов есть что делать.</p>
     </div>
@@ -783,7 +795,6 @@ footer{background:var(--ink);color:#A9B0BF;padding:var(--s5) 0 var(--s3);margin-
 <section class="sec dark" id="money">
   <div class="wrap">
     <div class="sec-head rise">
-      <span class="tag">про деньги</span>
       <h2>Сумму называем один раз</h2>
       <p>Вторая причина, по которой лечение откладывают, — страх, что назовут одно, а посчитают втрое. План лечения выдаём на руки до начала работ, и он не меняется.</p>
     </div>
@@ -833,7 +844,6 @@ footer{background:var(--ink);color:#A9B0BF;padding:var(--s5) 0 var(--s3);margin-
 <section class="sec" id="calc">
   <div class="wrap">
     <div class="sec-head rise">
-      <span class="tag">расчёт</span>
       <h2>Посчитайте до того, как позвоните</h2>
       <p>Отметьте, что нужно — увидите сумму, ежемесячный платёж по рассрочке и то, сколько вернёт налоговая. Без звонка и без «приезжайте, там посмотрим».</p>
     </div>
@@ -844,7 +854,7 @@ footer{background:var(--ink);color:#A9B0BF;padding:var(--s5) 0 var(--s3);margin-
         <div id="calcRows"></div>
       </div>
 
-      <aside class="calc-sum">
+      <div class="calc-sum">
         <div class="cs-in">
           <div class="cs-line"><span>Выбрано</span><b class="mono" id="csItems">—</b></div>
           <div class="cs-line"><span>Осмотр, снимок, план</span><b class="mono">0 ₽</b></div>
@@ -857,7 +867,7 @@ footer{background:var(--ink);color:#A9B0BF;padding:var(--s5) 0 var(--s3);margin-
           <a class="btn btn-main" href="#book" id="calcGo" style="width:100%">Записаться с этим расчётом</a>
           <button type="button" class="cs-reset" id="calcReset">Сбросить</button>
         </div>
-      </aside>
+      </div>
     </div>
   </div>
 </section>
@@ -866,7 +876,6 @@ footer{background:var(--ink);color:#A9B0BF;padding:var(--s5) 0 var(--s3);margin-
 <section class="sec" id="docs">
   <div class="wrap">
     <div class="sec-head rise">
-      <span class="tag">кто лечит</span>
       <h2>Врача выбираете вы</h2>
       <p>Не «свободный специалист», а конкретный человек: смотрите, читаете, записываетесь к тому, кто понравился. Он ведёт вас от осмотра до контрольного визита.</p>
     </div>
@@ -915,7 +924,6 @@ footer{background:var(--ink);color:#A9B0BF;padding:var(--s5) 0 var(--s3);margin-
 <section class="sec dark" id="cases">
   <div class="wrap">
     <div class="sec-head rise">
-      <span class="tag">работы</span>
       <h2>До и после, с суммой и сроком</h2>
       <p>Фотографии наших пациентов, опубликованы с их письменного согласия. Суммы — фактические, по закрытым планам лечения.</p>
     </div>
@@ -952,15 +960,14 @@ footer{background:var(--ink);color:#A9B0BF;padding:var(--s5) 0 var(--s3);margin-
 </section>
 
 <!-- ═══════════ отзывы ═══════════ -->
-<section class="sec">
+<section class="sec" id="reviews">
   <div class="wrap">
     <div class="sec-head rise">
-      <span class="tag">отзывы</span>
       <h2>Что пишут те, кто боялся</h2>
     </div>
     <div class="grid g3">
       <article class="rev rise">
-        <div class="stars" aria-label="Оценка 5 из 5">
+        <div class="stars" role="img" aria-label="Оценка 5 из 5">
           <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 1l2 4.2 4.5.6-3.3 3.2.8 4.5L8 11.4 4 13.5l.8-4.5L1.5 5.8 6 5.2 8 1z"/></svg>
           <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 1l2 4.2 4.5.6-3.3 3.2.8 4.5L8 11.4 4 13.5l.8-4.5L1.5 5.8 6 5.2 8 1z"/></svg>
           <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 1l2 4.2 4.5.6-3.3 3.2.8 4.5L8 11.4 4 13.5l.8-4.5L1.5 5.8 6 5.2 8 1z"/></svg>
@@ -971,7 +978,7 @@ footer{background:var(--ink);color:#A9B0BF;padding:var(--s5) 0 var(--s3);margin-
         <div class="rev-w"><div class="rev-a">НК</div><div><div class="rev-n">Наталья К.</div><div class="rev-c">лечение кариеса, 4 зуба</div></div></div>
       </article>
       <article class="rev rise">
-        <div class="stars" aria-label="Оценка 5 из 5">
+        <div class="stars" role="img" aria-label="Оценка 5 из 5">
           <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 1l2 4.2 4.5.6-3.3 3.2.8 4.5L8 11.4 4 13.5l.8-4.5L1.5 5.8 6 5.2 8 1z"/></svg>
           <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 1l2 4.2 4.5.6-3.3 3.2.8 4.5L8 11.4 4 13.5l.8-4.5L1.5 5.8 6 5.2 8 1z"/></svg>
           <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 1l2 4.2 4.5.6-3.3 3.2.8 4.5L8 11.4 4 13.5l.8-4.5L1.5 5.8 6 5.2 8 1z"/></svg>
@@ -982,7 +989,7 @@ footer{background:var(--ink);color:#A9B0BF;padding:var(--s5) 0 var(--s3);margin-
         <div class="rev-w"><div class="rev-a">ДП</div><div><div class="rev-n">Дмитрий П.</div><div class="rev-c">план лечения, 19 100 ₽</div></div></div>
       </article>
       <article class="rev rise">
-        <div class="stars" aria-label="Оценка 5 из 5">
+        <div class="stars" role="img" aria-label="Оценка 5 из 5">
           <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 1l2 4.2 4.5.6-3.3 3.2.8 4.5L8 11.4 4 13.5l.8-4.5L1.5 5.8 6 5.2 8 1z"/></svg>
           <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 1l2 4.2 4.5.6-3.3 3.2.8 4.5L8 11.4 4 13.5l.8-4.5L1.5 5.8 6 5.2 8 1z"/></svg>
           <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 1l2 4.2 4.5.6-3.3 3.2.8 4.5L8 11.4 4 13.5l.8-4.5L1.5 5.8 6 5.2 8 1z"/></svg>
@@ -1000,7 +1007,6 @@ footer{background:var(--ink);color:#A9B0BF;padding:var(--s5) 0 var(--s3);margin-
 <section class="sec">
   <div class="wrap">
     <div class="sec-head rise">
-      <span class="tag">прайс</span>
       <h2>Сколько стоит основное</h2>
       <p>Цены за законченную работу, вместе с анестезией и снимками. Точная сумма по вашему случаю — в плане лечения после осмотра.</p>
     </div>
@@ -1028,7 +1034,6 @@ footer{background:var(--ink);color:#A9B0BF;padding:var(--s5) 0 var(--s3);margin-
 <section class="sec" id="faq">
   <div class="wrap">
     <div class="sec-head rise">
-      <span class="tag">вопросы</span>
       <h2>Спрашивают перед первым визитом</h2>
     </div>
     <div class="faq">
@@ -1046,7 +1051,6 @@ footer{background:var(--ink);color:#A9B0BF;padding:var(--s5) 0 var(--s3);margin-
 <section class="sec" id="book">
   <div class="wrap">
     <div class="sec-head rise">
-      <span class="tag">запись</span>
       <h2>Запишитесь так, как вам удобнее</h2>
       <p>Администратор отвечает в рабочее время в течение пятнадцати минут: уточняет проблему, предлагает время и сразу называет ориентир по стоимости.</p>
     </div>
@@ -1147,7 +1151,7 @@ footer{background:var(--ink);color:#A9B0BF;padding:var(--s5) 0 var(--s3);margin-
         <p class="f-lic">ООО «Эмаль». Лицензия № ЛО-60-01-000000 от 00.00.0000. Имеются противопоказания, необходима консультация специалиста.</p>
       </div>
       <div class="f-c">
-        <h4>Разделы</h4>
+        <h3>Разделы</h3>
         <a href="#how">Что внутри зуба</a>
         <a href="#fear">Лечение без боли</a>
         <a href="#money">Цены и рассрочка</a>
@@ -1157,7 +1161,7 @@ footer{background:var(--ink);color:#A9B0BF;padding:var(--s5) 0 var(--s3);margin-
         <a href="#faq">Вопросы</a>
       </div>
       <div class="f-c">
-        <h4>Связаться</h4>
+        <h3>Связаться</h3>
         <a href="tel:+78112505050">+7 811 250-50-50</a>
         <a href="https://t.me/emal_pskov" rel="noopener">Telegram</a>
         <a href="https://wa.me/78112505050" rel="noopener">WhatsApp</a>
